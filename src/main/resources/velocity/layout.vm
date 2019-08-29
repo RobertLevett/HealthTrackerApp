@@ -1,0 +1,86 @@
+#macro(mainLayout)
+<html>
+<head>
+    <title>$msg.get("COMMON_TITLE")</title>
+    <link rel="stylesheet" href="/main.css">
+    <link rel="icon" href="/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<header>
+
+<nav>
+
+        <ul id="chooseLanguage">
+            <form>
+                <li>
+                    <button name="locale" value="de" style="background-image: url(/img/german.png);"></button>
+                </li>
+                <li>
+                    <button name="locale" value="en" style="background-image: url(/img/english.png);"></button>
+                </li>
+            </form>
+        </ul>
+        <ul id="menu">
+            #if($currentUser)
+                <li>
+                    <form method="post" action="$WebPath.getLOGOUT()">
+                        <button id="logout">$msg.get("COMMON_NAV_LOGOUT")</button>
+                    </form>
+                </li>
+            #else
+                <li id ="a"><a href="$WebPath.getINDEX()"" >$msg.get("COMMON_NAV_LOGIN")</a></li>
+            #end
+        </ul>
+    </nav>
+
+        <ol id="topnav1" style="list-style-type:none">
+        <a href="$WebPath.getINDEX()">Home</a>
+          <li> <a href="$WebPath.getREGISTER()"" >$msg.get("REGISTER_BUTTON")</a></li>
+          <li><a href="$WebPath.getLOGIN()"" >$msg.get("COMMON_NAV_LOGIN")</a></li>
+          <li><a href="$WebPath.getACCOUNT()"" >$msg.get("PROFILE_NAV_ACCOUNT")</a></li>
+          <li> <a href="$WebPath.getNUTRITION()"" >$msg.get("PROFILE_NUTRITION_BUTTON")</a></li>
+          <li><button onclick="visibilityBMI()">BMI calculator</button>
+                                                    <div hidden id="editBMI">
+                                                    <form id="BMIForm" method="post">
+                                                    <input id = "weight2" type="number"  value="Weight" onfocus="this.value=''" placeholder="Weight in kilograms" >
+                                                    <input id="height2" type="number"  value="Height" onfocus="this.value=''" placeholder="Height in metres" >
+                                                    <input type="submit" value="$msg.get("PROFILE_SUBMIT")" onclick="bmi()">
+                                                    <p id="result">Press submit to see the result</p>
+                                                    </form>
+                                                     </div></li>
+        </ol>
+
+</header>
+<main id >
+    <div id="content">
+        $bodyContent
+    </div>
+</main>
+
+</body>
+</html>
+
+
+<script>
+function visibilityBMI() {
+    var x = document.getElementById("editBMI");
+    if (x.style.display !== "block") {
+        x.style.visibility = "visible";
+        x.style.display = "block";
+    } else {
+
+        x.style.display = "none";
+    }
+}
+
+function bmi () {
+    var weight = document.getElementById("weight2").value;
+    var height = document.getElementById("height2").value;
+    var result = weight / (height * height);
+    document.getElementById("result").innerHTML = "Your bmi score is : " + result;
+}
+
+
+</script>
+#end

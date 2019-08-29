@@ -1,0 +1,35 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+<form id="loginForm" method="post">
+    #if($registrationFailed)
+        <p class="bad notification">$msg.get("REGISTER_EMAIL_FAIL")</p>
+    #elseif($authenticationSucceeded)
+        <p class="good notification">$msg.get("REGISTER_COMPLETE")</p>
+        <!--<p class="good notification">$msg.get("REGISTER_COMPLETE", $currentUser)</p> -->
+    #elseif($loggedOut)
+        <p class="notification">$msg.get("LOGIN_LOGGED_OUT")</p>
+    #end
+    <p>$msg.get("REGISTER_REGISTER_FORM")</p>
+
+    <input type="text" pattern="[A-Za-z]{3,}" name="firstName" placeholder="$msg.get("REGISTER_FIRST_NAME")" value="" required>
+
+    <input type="text" pattern="[A-Za-z]{3,}" name="lastName" placeholder="$msg.get("REGISTER_LAST_NAME")" value="" required>
+
+    <input type="date" name="DOB" placeholder="$msg.get("REGISTER_DOB")" value="" required>
+
+    <input type="email" name="email" placeholder="$msg.get("REGISTER_EMAIL")" value="" required>
+
+    <input type="password" name="password" placeholder="$msg.get("REGISTER_PASSWORD")" value="" required>
+
+    #if($loginRedirect)
+        <input type="hidden" name="loginRedirect" value="$WebPath.getIndex()">
+    #end
+
+
+
+
+    <input type="submit" value="$msg.get("REGISTER_REGISTER")">
+
+</form>
+#end
+

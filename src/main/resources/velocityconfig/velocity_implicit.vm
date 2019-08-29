@@ -1,0 +1,27 @@
+#* @implicitly included *#
+#* @vtlvariable name="WebPath" type="app.util.Path.Web" *#
+#* @vtlvariable name="msg" type="app.util.MessageBundle" *#
+#* @vtlvariable name="books" type="java.lang.Iterable<app.book.Book>" *#
+#* @vtlvariable name="book" type="app.book.Book" *#
+#* @vtlvariable name="users" type="java.lang.Iterable<app.user.User>" *#
+#* @vtlvariable name="currentUser" type="java.lang.String" *#
+#* @vtlvariable name="firstName" type="java.lang.String" *#
+#* @vtlvariable name="lastName" type="java.lang.String" *#
+#* @vtlvariable name="DOB" type="java.lang.String" *#
+#* @vtlvariable name="height" type="java.lang.String" *#
+#* @vtlvariable name="weight" type="java.lang.String" *#
+#* @vtlvariable name="distance" type="java.lang.String" *#
+#* @vtlvariable name="pedometer" type="java.lang.String" *#
+#* @vtlvariable name="loggedOut" type="java.lang.String" *#
+#* @vtlvariable name="authenticationFailed" type="java.lang.String" *#
+#* @vtlvariable name="authenticationSucceeded" type="java.lang.String" *#
+#* @vtlvariable name="loginRedirect" type="java.lang.String" *#
+
+#* @vtlvariable name="foodName" type="java.lang.String" *#
+#* @vtlvariable name="protein" type="java.lang.String" *#
+#* @vtlvariable name="fat" type="java.lang.String" *#
+#* @vtlvariable name="carbs" type="java.lang.String" *#
+#* @vtlvariable name="calories" type="java.lang.String" *#
+#* @vtlvariable name="energy" type="java.lang.String" *#
+
+

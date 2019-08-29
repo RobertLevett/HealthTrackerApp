@@ -1,0 +1,260 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+</head>
+<body>
+<p id="loginGood" class="good notification">$msg.get("LOGIN_AUTH_SUCCEEDED", $currentUser)</p>
+
+<div class="container">
+	<div class="row">
+       <div class="col-md-7 ">
+<div class="panel panel-default">
+  <div class="panel-heading">  <h4 >$firstName $lastName</h4></div>
+   <div class="panel-body">
+
+
+
+    <div class="box box-info">
+
+            <div class="box-body">
+                     <div class="col-sm-6">
+                     <div  align="center"> <img alt="User Profile Image" src="/img/nobody.jpg" id="profile-image1" class="img-circle img-responsive">
+
+                <input id="profile-image-upload" class="hidden" type="file">
+<div style="color:#999;" >click here to change profile image</div>
+                <!--Upload Image Js And Css-->
+
+                     </div>
+              <br>
+
+              <!-- /input-group -->
+            </div>
+            <div class="col-sm-6">
+            <h4 style="color:#00b1b1;">My to Do List: </h4></span>
+
+            <div id="myDIV" class="header1">
+
+              <input type="text" id="myInput" placeholder="Title...">
+              <span onclick="newElement()" id ="addBtn" style = "background: grey">Add</span>
+            </div>
+
+            <ul id="myUL">
+
+            </ul>
+
+
+            </div>
+            <div class="clearfix"></div>
+            <hr style="margin:5px 0 5px 0;">
+
+<div class="col-sm-5 col-xs-6 tital " >$msg.get("PROFILE_DOB_DOB")</div><div class="col-sm-7">$DOB</div>
+
+  <div class="clearfix"></div>
+<div class="bot-border"></div>
+
+<div class="col-sm-5 col-xs-6 tital " ><button onclick="visibilityWeight()">$msg.get("PROFILE_EDIT")</button>
+                                           <div hidden id="editWeight">
+                                               <form id="weightForm" method="post">
+                                                   <input type="text" name="weight" value="$msg.get("PROFILE_EDIT_NEW")" onfocus="this.value=''">
+                                                   <input type="submit" value="$msg.get("PROFILE_SUBMIT")" >
+                                               </form>
+                                           </div>$msg.get("PROFILE_WEIGHT_WEIGHT")</div><div class="col-sm-7">$weight</div>
+
+  <div class="clearfix"></div>
+<div class="bot-border"></div>
+
+<div class="col-sm-5 col-xs-6 tital " ><button onclick="visibilityHeight()">$msg.get("PROFILE_EDIT")</button>
+                                                                                  <div hidden id="editHeight">
+                                                                                      <form id="heightForm" method="post">
+                                                                                          <input type="text" name="height" value="$msg.get("PROFILE_EDIT_NEW")" onfocus="this.value=''">
+                                                                                          <input type="submit" value="$msg.get("PROFILE_SUBMIT")" >
+                                                                                      </form>
+                                                                                  </div>$msg.get("PROFILE_HEIGHT_HEIGHT")</div><div class="col-sm-7">$height</div>
+
+  <div class="clearfix"></div>
+<div class="bot-border"></div>
+
+<div class="col-sm-5 col-xs-6 tital " ><button onclick="visibilityDistance()">$msg.get("PROFILE_EDIT")</button>
+                                                                           <div hidden id="editDistance">
+                                                                          <form id="distanceForm" method="post">
+                                                                          <input type="text" name="distance" value="$msg.get("PROFILE_EDIT_NEW")" onfocus="this.value=''">
+                                                                          <input type="submit" value="$msg.get("PROFILE_SUBMIT")" >
+                                                                         </form>
+                                                                         </div>$msg.get("PROFILE_DISTANCE_DISTANCE_TODAY")</div><div class="col-sm-7">$distance</div>
+  <div class="clearfix"></div>
+<div class="bot-border"></div>
+
+<div class="col-sm-5 col-xs-6 tital " >$msg.get("PROFILE_DISTANCE_DISTANCE_TOTAL")</div><div class="col-sm-7">$totalDistance</div>
+
+
+
+ <div class="clearfix"></div>
+<div class="bot-border"></div>
+
+
+<div class="col-sm-5 col-xs-6 tital " ><button onclick="visibilityPedometer()">$msg.get("PROFILE_EDIT")</button>
+                                      <div hidden id="editPedometer">
+                                      <form id="pedometerForm" method="post">
+                                      <input type="text" name="pedometer" value="$msg.get("PROFILE_EDIT_NEW")" onfocus="this.value=''">
+                                      <input type="submit" value="$msg.get("PROFILE_SUBMIT")" >
+                                      </form>
+                                       </div>$msg.get("PROFILE_PEDOMETER_PEDOMETER")</div><div class="col-sm-7">$pedometer
+</div>
+ <div class="clearfix"></div>
+<div class="bot-border"></div>
+<div class="col-sm-5 col-xs-6 tital " >$msg.get("PROFILE_CALORIES")</div><div class="col-sm-7">$totalCalories (kcal)</div>
+
+
+ <div class="clearfix"></div>
+<div class="bot-border"></div>
+
+
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+        </div>
+
+
+    </div>
+    </div>
+    <h2>delete account </h2>
+    <div class="col-sm-5 col-xs-6 tital " ><button onclick="visibilityRemove()">Remove</button>
+                                                                               <div hidden id="remove">
+                                                                              <form id="deleteAccount" method="post">
+                                                                              <input type="text" name="deleteAccount" value="$msg.get("PROFILE_EDIT_NEW")" onfocus="this.value=''">
+                                                                              <input type="submit" value="$msg.get("PROFILE_SUBMIT")" >
+                                                                             </form>
+                                                                             </div></div>
+</div>
+
+
+
+
+   </div>
+</div>
+
+
+#end
+<script>
+function visibilityRemove() {
+    var x = document.getElementById("remove");
+    if (x.style.display !== "block") {
+        x.style.visibility = "visible";
+        x.style.display = "block";
+    } else {
+
+        x.style.display = "none";
+    }
+}
+function visibilityWeight() {
+    var x = document.getElementById("editWeight");
+    if (x.style.display !== "block") {
+        x.style.visibility = "visible";
+        x.style.display = "block";
+    } else {
+
+        x.style.display = "none";
+    }
+}
+function visibilityHeight() {
+    var x = document.getElementById("editHeight");
+    if (x.style.display !== "block") {
+        x.style.visibility = "visible";
+        x.style.display = "block";
+    } else {
+
+        x.style.display = "none";
+    }
+}
+function visibilityDistance() {
+    var x = document.getElementById("editDistance");
+    if (x.style.display !== "block") {
+        x.style.visibility = "visible";
+        x.style.display = "block";
+    } else {
+
+        x.style.display = "none";
+    }
+}
+function visibilityPedometer() {
+    var x = document.getElementById("editPedometer");
+    if (x.style.display !== "block") {
+        x.style.visibility = "visible";
+        x.style.display = "block";
+    } else {
+
+        x.style.display = "none";
+    }
+}
+
+setTimeout(function() {
+  $("#loginGood").remove();
+}, 2000);
+
+
+// Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+
+</script>
+
+</body>
+</html>
+
+
